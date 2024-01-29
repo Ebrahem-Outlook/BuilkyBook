@@ -1,5 +1,6 @@
 using BuilkyBookWeb.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // DI
-builder.Services.AddDbContext<AppDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("DefualtConnection")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefualtConnection")));
+
 
 var app = builder.Build();
 
